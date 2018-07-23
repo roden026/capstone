@@ -1,2 +1,2 @@
-# capstone
-Data, Slides, Notebooks, and Scripts related to my capston project. 
+# Capstone
+Data, Slides, Notebooks, and Scripts related to my capstone project. 
