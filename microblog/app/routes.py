@@ -8,7 +8,7 @@ from flask import request
 from werkzeug.urls import url_parse
 from flask import url_for
 from app import db
-from app.forms import RegistrationForm
+from app.forms import RegistrationForm, SurveyForm
 from datetime import datetime
 from app.forms import EditProfileForm
 from app.forms import PostForm
@@ -150,3 +150,30 @@ def unfollow(username):
     db.session.commit()
     flash('You are not following {}.'.format(username))
     return redirect(url_for('user', username=username))
+
+
+@app.route('/survey', methods=['GET', 'POST'])
+def survey():
+    form = SurveyForm()
+    if form.validate_on_submit():
+        content = form.content.data
+        overall_rating = form.overall_rating.data
+        type_traveller = form.type_traveller.data
+        cabin_flown = form.cabin_flown.data
+        seat_comfort_rating = form.seat_comfort_rating.data
+        cabin_staff_rating = form.cabin_staff_rating.data
+        food_beverages_rating = form.food_beverages_rating.data
+        inflight_entertainment_rating = form.inflight_entertainment_rating.data
+        ground_service_rating = form.ground_service_rating.data
+        wifi_connectivity_rating = form.wifi_connectivity_rating.data
+        value_money_rating = form.value_money_rating.data
+
+        submission_dictionary = {'content': content, 'overall_rating': overall_rating, 'type_traveller': type_traveller,
+            'cabin_flown': cabin_flown, 'seat_comfort_rating': seat_comfort_rating, 'cabin_staff_rating': cabin_staff_rating, 'food_beverages_rating': food_beverages_rating,
+            'inflight_entertainment_rating': inflight_entertainment_rating, 'ground_service_rating': ground_service_rating, 'wifi_connectivity_rating': wifi_connectivity_rating,
+            'value_money_rating': value_money_rating}
+
+        # redirect to results page once it's up
+        # return redirect(url_for('results', record=submission_dictionary))
+        return redirect(url_for('login'))
+    return render_template('survey.html', title='Survey', form=form)
