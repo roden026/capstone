@@ -81,20 +81,17 @@ class SurveyForm(FlaskForm):
         coerce=int,
         validators = [DataRequired()])
 
-    inflight_entertainment_rating = SelectField('Inflight Entertainment Rating',
+    inflight_entertainment_rating = SelectField('Inflight Entertainment Rating (Optional)',
         choices=[(1,'1'), (2,'2'), (3,'3'), (4,'4'), (5,'5')],
-        coerce=int,
-        validators = [DataRequired()])
+        coerce=int)
 
-    ground_service_rating = SelectField('Ground Service Rating',
+    ground_service_rating = SelectField('Ground Service Rating (Optional)',
         choices=[(1,'1'), (2,'2'), (3,'3'), (4,'4'), (5,'5')],
-        coerce=int,
-        validators = [DataRequired()])
+        coerce=int)
 
-    wifi_connectivity_rating = SelectField('Wifi Connectivity Rating',
+    wifi_connectivity_rating = SelectField('Wifi Connectivity Rating (Optional)',
         choices=[(1,'1'), (2,'2'), (3,'3'), (4,'4'), (5,'5')],
-        coerce=int,
-        validators = [DataRequired()])
+        coerce=int)
 
     value_money_rating = SelectField('Value Money Rating',
         choices=[(1,'1'), (2,'2'), (3,'3'), (4,'4'), (5,'5')],

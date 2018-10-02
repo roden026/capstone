@@ -64,6 +64,23 @@ class Post(db.Model):
     def __repr__(self):
         return '<Post {}>'.format(self.body)
 
+class Review(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    content = db.Column(db.String(1000))
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    overall_rating = db.Column(db.Integer)
+    type_traveller = db.Column(db.String(100))
+    cabin_flown = db.Column(db.String(100))
+    seat_comfort_rating = db.Column(db.Integer)
+    cabin_staff_rating = db.Column(db.Integer)
+    food_beverages_rating = db.Column(db.Integer)
+    inflight_entertainment_rating = db.Column(db.Integer)
+    ground_service_rating = db.Column(db.Integer)
+    wifi_connectivity_rating = db.Column(db.Integer)
+    value_money_rating = db.Column(db.Integer)
+
+
+
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))

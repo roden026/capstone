@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h3>Review Content: {{ record.content }}</h3>
+  <hr>
+  <h1>Recommendation Predictions and Metrics</h1>
+    {% if text_pred[0] == 0 %}
+    <h3>Text Only Prediction: Not Recommended</h3>
+    {% else %}
+    <h3>Text Only Prediction: Recommended</h3>
+    {% endif %}
+    <hr>
+        <h1>Text Prediction</h1>
+        <hr>
+          {% include 'text_chart.html' %}
+        <hr>
+    <hr>
+    <h1>Recommendation Predictions and Metrics</h1>
+      {% if full_pred[0] == 0 %}
+      <h3>Full Survey Prediction: Not Recommended</h3>
+      {% else %}
+      <h3>Full Survey Prediction: Recommended</h3>
+      {% endif %}
+      <hr>
+        {% include 'full_chart.html' %}
+      <hr>
+
+    <hr>
+      <h1>Topic Exploration</h1>
+      <h2>Predicted Topic Group is Topic {{ best_topic }}</h2>
+      <h3>Predicted Topics Were {{ topics }}</h3>
+    <hr>
+      {% include 'lda.html' %}
+    <hr>
+{% endblock %}

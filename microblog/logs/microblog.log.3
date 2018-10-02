@@ -1,4 +1,4 @@
-2018-09-18 21:13:46,763 ERROR: Exception on /login [GET] [in c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py:1761]
+2018-10-01 20:42:45,734 ERROR: Exception on /results [GET] [in c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,8 +12,8 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\erroden\Desktop\Capstone\microblog\app\routes.py", line 54, in login
-    return render_template('login.html', title='Sign In', form=form)
+  File "C:\Users\erroden\Desktop\Capstone\microblog\app\routes.py", line 250, in results
+    text_html=text_html, best_topic=best_topic)
   File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\templating.py", line 135, in render_template
     context, ctx.app)
   File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\templating.py", line 117, in _render
@@ -24,31 +24,104 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\jinja2\_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
-  File "C:\Users\erroden\Desktop\Capstone\microblog\app\templates\base.html", line 32, in template
-    {% block app_content %}{% endblock %}
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\jinja2\environment.py", line 1005, in render
-    return concat(self.root_render_func(self.new_context(vars)))
-  File "C:\Users\erroden\Desktop\Capstone\microblog\app\templates\login.html", line 1, in top-level template code
+  File "C:\Users\erroden\Desktop\Capstone\microblog\app\templates\results.html", line 1, in top-level template code
     {% extends "base.html" %}
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\jinja2\_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\erroden\Desktop\Capstone\microblog\app\templates\base.html", line 32, in template
-    {% block app_content %}{% endblock %}
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\jinja2\environment.py", line 543, in _generate
-    optimized=self.optimized)
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\jinja2\compiler.py", line 82, in generate
-    generator.visit(node)
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\jinja2\visitor.py", line 38, in visit
-    return f(node, *args, **kwargs)
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\jinja2\compiler.py", line 718, in visit_Template
-    self.fail('block %r defined twice' % block.name, block.lineno)
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\jinja2\compiler.py", line 315, in fail
-    raise TemplateAssertionError(msg, lineno, self.name, self.filename)
-jinja2.exceptions.TemplateAssertionError: block 'app_content' defined twice
-2018-09-18 21:14:51,790 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
-2018-09-18 21:23:32,205 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
-2018-09-18 21:38:43,034 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
-2018-09-18 21:40:40,211 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
-2018-09-18 21:42:15,171 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
+  File "C:\Users\erroden\Desktop\Capstone\microblog\app\templates\base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
+    {%- block html %}
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
+    {% block body -%}
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
+    {% block content -%}
+  File "C:\Users\erroden\Desktop\Capstone\microblog\app\templates\results.html", line 15, in block "content"
+    {% include text_html %}
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\templating.py", line 58, in get_source
+    return self._get_source_fast(environment, template)
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\templating.py", line 86, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: 
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    
+      <meta charset="utf-8">
+      <title>text_plot</title>
+      
+      
+        
+          
+        <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-0.13.0.min.css" type="text/css" />
+        
+        
+          
+        <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-0.13.0.min.js"></script>
+        <script type="text/javascript">
+            Bokeh.set_log_level("info");
+        </script>
+        
+      
+      
+    
+  </head>
+  
+  
+  <body>
+    
+      
+        
+          
+          
+            <div class="bk-root" id="0eb86bcd-71ac-423c-ab41-37b41b9e6c00"></div>
+          
+        
+      
+      
+        <script type="application/json" id="2b8002cb-c44b-4e60-9b8c-0e09265d98d8">
+          {"a239e743-6ad3-46e8-9c08-5e424df6f0a6":{"roots":{"references":[{"attributes":{"callback":null,"factors":["No","Yes"]},"id":"f9bce475-6781-4bfb-9312-4f763e17645c","type":"FactorRange"},{"attributes":{},"id":"bb3dec6e-5a17-4952-9fa7-76c129ab6bcb","type":"CategoricalScale"},{"attributes":{},"id":"2ce59c85-9cc2-4ecb-bd53-037cedf50ecb","type":"Selection"},{"attributes":{},"id":"6529444b-2548-4cca-af74-030bc3db0bc0","type":"BasicTicker"},{"attributes":{},"id":"a70d565a-eb13-45c1-949f-be75abc1134d","type":"BasicTicker"},{"attributes":{"grid_line_color":{"value":null},"plot":{"id":"aef9c815-b0b7-4f84-ab2c-a715b8802f75","subtype":"Figure","type":"Plot"},"ticker":{"id":"a1662e8f-0e3d-4939-ba30-0ed6cf148242","type":"CategoricalTicker"}},"id":"a26fcf88-b8b3-4c42-9beb-dcc88770ec9e","type":"Grid"},{"attributes":{"data_source":{"id":"897d1f54-2b85-47b5-9899-f19d9e431871","type":"ColumnDataSource"},"glyph":{"id":"4ee917a1-acdd-4115-adf6-d74844d80586","type":"VBar"},"hover_glyph":null,"muted_glyph":null,"view":{"id":"a623bef0-f111-4a28-9c3b-b3b31f9ec584","type":"CDSView"}},"id":"2599ba46-35a0-4203-90ab-2ba1c01c8766","type":"GlyphRenderer"},{"attributes":{"grid_line_color":{"value":null},"plot":{"id":"aef9c815-b0b7-4f84-ab2c-a715b8802f75","subtype":"Figure","type":"Plot"},"ticker":{"id":"a70d565a-eb13-45c1-949f-be75abc1134d","type":"BasicTicker"}},"id":"c85af9cc-8c76-4fb1-9973-ce37cb5281a9","type":"Grid"},{"attributes":{"plot":null,"text":"Recommend Prob"},"id":"c7b44bd8-d808-4636-8868-7cf26ee50475","type":"Title"},{"attributes":{"dimension":1,"grid_line_alpha":{"value":0.1},"grid_line_color":{"value":"#999999"},"plot":{"id":"aef9c815-b0b7-4f84-ab2c-a715b8802f75","subtype":"Figure","type":"Plot"},"ticker":{"id":"eff99467-df95-4f15-93b8-4b18077096c6","type":"BasicTicker"}},"id":"fda4d579-c7a4-4134-8831-7510be2d1641","type":"Grid"},{"attributes":{},"id":"3bad5b32-b475-4086-823d-264b1d70b7ab","type":"UnionRenderers"},{"attributes":{"axis_label":"Recommend Prediction","formatter":{"id":"fafaa2d5-ff37-436f-8a46-4265866ed67c","type":"CategoricalTickFormatter"},"major_label_orientation":1,"plot":{"id":"aef9c815-b0b7-4f84-ab2c-a715b8802f75","subtype":"Figure","type":"Plot"},"ticker":{"id":"a1662e8f-0e3d-4939-ba30-0ed6cf148242","type":"CategoricalTicker"}},"id":"c8a9e1f6-e1cd-4c76-b21d-634e99f344be","type":"CategoricalAxis"},{"attributes":{},"id":"a1662e8f-0e3d-4939-ba30-0ed6cf148242","type":"CategoricalTicker"},{"attributes":{"callback":null},"id":"4f7814dc-6128-4ddc-97c8-22aed251e1ea","type":"Range1d"},{"attributes":{"callback":null,"renderers":"auto","tooltips":"\n      &lt;div&gt;\n        &lt;span class=\"hover-tooltip\"&gt;$x&lt;/span&gt;\n      &lt;/div&gt;\n      &lt;div&gt;\n        &lt;span class=\"hover-tooltip\"&gt;@Probability Probability&lt;/span&gt;\n      &lt;/div&gt;\n    "},"id":"339fea14-1994-4f98-9bbd-920e7bb9fb3d","type":"HoverTool"},{"attributes":{},"id":"3e3928f1-b30f-44c0-b2eb-b316261ea0de","type":"LinearScale"},{"attributes":{"source":{"id":"897d1f54-2b85-47b5-9899-f19d9e431871","type":"ColumnDataSource"}},"id":"a623bef0-f111-4a28-9c3b-b3b31f9ec584","type":"CDSView"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","logo":null,"tools":[{"id":"339fea14-1994-4f98-9bbd-920e7bb9fb3d","type":"HoverTool"}]},"id":"f916b983-1459-4a35-b908-8d85f59450df","type":"Toolbar"},{"attributes":{"fill_color":{"field":"color"},"top":{"field":"Probability"},"width":{"value":0.8},"x":{"field":"Recommend"}},"id":"4ee917a1-acdd-4115-adf6-d74844d80586","type":"VBar"},{"attributes":{"callback":null,"data":{"Probability":[0.9904002215126207,0.009599778487379302],"Recommend":["No","Yes"],"color":["#440154","#FDE724"]},"selected":{"id":"2ce59c85-9cc2-4ecb-bd53-037cedf50ecb","type":"Selection"},"selection_policy":{"id":"3bad5b32-b475-4086-823d-264b1d70b7ab","type":"UnionRenderers"}},"id":"897d1f54-2b85-47b5-9899-f19d9e431871","type":"ColumnDataSource"},{"attributes":{"below":[{"id":"c8a9e1f6-e1cd-4c76-b21d-634e99f344be","type":"CategoricalAxis"}],"left":[{"id":"c11e2350-d3a5-4144-8fa0-afd9d20dcfc4","type":"LinearAxis"}],"min_border":0,"min_border_top":0,"outline_line_color":{"value":"#666666"},"plot_height":1000,"plot_width":500,"renderers":[{"id":"c8a9e1f6-e1cd-4c76-b21d-634e99f344be","type":"CategoricalAxis"},{"id":"a26fcf88-b8b3-4c42-9beb-dcc88770ec9e","type":"Grid"},{"id":"c11e2350-d3a5-4144-8fa0-afd9d20dcfc4","type":"LinearAxis"},{"id":"fda4d579-c7a4-4134-8831-7510be2d1641","type":"Grid"},{"id":"2599ba46-35a0-4203-90ab-2ba1c01c8766","type":"GlyphRenderer"},{"id":"c85af9cc-8c76-4fb1-9973-ce37cb5281a9","type":"Grid"},{"id":"46dbddbb-1453-4b64-8148-86bbece5b278","type":"Grid"}],"sizing_mode":"scale_both","title":{"id":"c7b44bd8-d808-4636-8868-7cf26ee50475","type":"Title"},"toolbar":{"id":"f916b983-1459-4a35-b908-8d85f59450df","type":"Toolbar"},"toolbar_location":"above","v_symmetry":true,"x_range":{"id":"f9bce475-6781-4bfb-9312-4f763e17645c","type":"FactorRange"},"x_scale":{"id":"bb3dec6e-5a17-4952-9fa7-76c129ab6bcb","type":"CategoricalScale"},"y_range":{"id":"4f7814dc-6128-4ddc-97c8-22aed251e1ea","type":"Range1d"},"y_scale":{"id":"3e3928f1-b30f-44c0-b2eb-b316261ea0de","type":"LinearScale"}},"id":"aef9c815-b0b7-4f84-ab2c-a715b8802f75","subtype":"Figure","type":"Plot"},{"attributes":{"axis_label":"Prediction Probability","formatter":{"id":"d37840ef-1bdd-4edb-8dd7-0781df72d841","type":"BasicTickFormatter"},"plot":{"id":"aef9c815-b0b7-4f84-ab2c-a715b8802f75","subtype":"Figure","type":"Plot"},"ticker":{"id":"eff99467-df95-4f15-93b8-4b18077096c6","type":"BasicTicker"}},"id":"c11e2350-d3a5-4144-8fa0-afd9d20dcfc4","type":"LinearAxis"},{"attributes":{},"id":"d37840ef-1bdd-4edb-8dd7-0781df72d841","type":"BasicTickFormatter"},{"attributes":{},"id":"fafaa2d5-ff37-436f-8a46-4265866ed67c","type":"CategoricalTickFormatter"},{"attributes":{},"id":"eff99467-df95-4f15-93b8-4b18077096c6","type":"BasicTicker"},{"attributes":{"dimension":1,"grid_line_alpha":{"value":0.1},"grid_line_color":{"value":"#999999"},"plot":{"id":"aef9c815-b0b7-4f84-ab2c-a715b8802f75","subtype":"Figure","type":"Plot"},"ticker":{"id":"6529444b-2548-4cca-af74-030bc3db0bc0","type":"BasicTicker"}},"id":"46dbddbb-1453-4b64-8148-86bbece5b278","type":"Grid"}],"root_ids":["aef9c815-b0b7-4f84-ab2c-a715b8802f75"]},"title":"Bokeh Application","version":"0.13.0"}}
+        </script>
+        <script type="text/javascript">
+          (function() {
+            var fn = function() {
+              Bokeh.safely(function() {
+                (function(root) {
+                  function embed_document(root) {
+                    
+                  var docs_json = document.getElementById('2b8002cb-c44b-4e60-9b8c-0e09265d98d8').textContent;
+                  var render_items = [{"docid":"a239e743-6ad3-46e8-9c08-5e424df6f0a6","roots":{"aef9c815-b0b7-4f84-ab2c-a715b8802f75":"0eb86bcd-71ac-423c-ab41-37b41b9e6c00"}}];
+                  root.Bokeh.embed.embed_items(docs_json, render_items);
+                
+                  }
+                  if (root.Bokeh !== undefined) {
+                    embed_document(root);
+                  } else {
+                    var attempts = 0;
+                    var timer = setInterval(function(root) {
+                      if (root.Bokeh !== undefined) {
+                        embed_document(root);
+                        clearInterval(timer);
+                      }
+                      attempts++;
+                      if (attempts > 100) {
+                        console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing")
+                        clearInterval(timer);
+                      }
+                    }, 10, root)
+                  }
+                })(window);
+              });
+            };
+            if (document.readyState != "loading") fn();
+            else document.addEventListener("DOMContentLoaded", fn);
+          })();
+        </script>
+    
+  </body>
+  
+</html>

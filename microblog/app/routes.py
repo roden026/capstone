@@ -3,6 +3,7 @@ from app import app
 from app.forms import LoginForm
 from flask_login import current_user, login_user, logout_user
 from app.models import User
+from app.models import Review
 from flask_login import login_required
 from flask import request
 from werkzeug.urls import url_parse
@@ -13,6 +14,21 @@ from datetime import datetime
 from app.forms import EditProfileForm
 from app.forms import PostForm
 from app.models import Post
+import pandas as pd
+from topics import predict_topic
+import prediction
+import os
+
+# plotting modules
+from bokeh.models import HoverTool, FactorRange, Plot, LinearAxis, Grid, Range1d
+from bokeh.models.glyphs import VBar
+from bokeh.plotting import figure
+from bokeh.embed import file_html
+from bokeh.resources import CDN
+from bokeh.models.sources import ColumnDataSource
+from bokeh import palettes
+from plotting import create_bar_chart, create_hover_tool
+import numpy as np
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
@@ -156,24 +172,83 @@ def unfollow(username):
 def survey():
     form = SurveyForm()
     if form.validate_on_submit():
-        content = form.content.data
-        overall_rating = form.overall_rating.data
-        type_traveller = form.type_traveller.data
-        cabin_flown = form.cabin_flown.data
-        seat_comfort_rating = form.seat_comfort_rating.data
-        cabin_staff_rating = form.cabin_staff_rating.data
-        food_beverages_rating = form.food_beverages_rating.data
-        inflight_entertainment_rating = form.inflight_entertainment_rating.data
-        ground_service_rating = form.ground_service_rating.data
-        wifi_connectivity_rating = form.wifi_connectivity_rating.data
-        value_money_rating = form.value_money_rating.data
 
-        submission_dictionary = {'content': content, 'overall_rating': overall_rating, 'type_traveller': type_traveller,
-            'cabin_flown': cabin_flown, 'seat_comfort_rating': seat_comfort_rating, 'cabin_staff_rating': cabin_staff_rating, 'food_beverages_rating': food_beverages_rating,
-            'inflight_entertainment_rating': inflight_entertainment_rating, 'ground_service_rating': ground_service_rating, 'wifi_connectivity_rating': wifi_connectivity_rating,
-            'value_money_rating': value_money_rating}
+        review = Review(
+            content = form.content.data,
+            overall_rating = form.overall_rating.data,
+            type_traveller = form.type_traveller.data,
+            cabin_flown = form.cabin_flown.data,
+            seat_comfort_rating = form.seat_comfort_rating.data,
+            cabin_staff_rating = form.cabin_staff_rating.data,
+            food_beverages_rating = form.food_beverages_rating.data,
+            inflight_entertainment_rating = form.inflight_entertainment_rating.data,
+            ground_service_rating = form.ground_service_rating.data,
+            wifi_connectivity_rating = form.wifi_connectivity_rating.data,
+            value_money_rating = form.value_money_rating.data)
+        db.session.add(review)
+        db.session.commit()
 
-        # redirect to results page once it's up
-        # return redirect(url_for('results', record=submission_dictionary))
-        return redirect(url_for('login'))
+        return redirect(url_for('results'))
     return render_template('survey.html', title='Survey', form=form)
+
+@app.route('/results', methods=['GET', 'POST'])
+def results():
+    # get most recent review (the one that was just submitted)
+    record = Review.query.order_by(Review.timestamp.desc()).first_or_404()
+
+    # build a dictionary from the record to then construct a dataframe for the record
+    dict = {
+        'content': record.content,
+        'overall_rating' : record.overall_rating,
+        'type_traveller' : record.type_traveller,
+        'cabin_flown' : record.cabin_flown,
+        'seat_comfort_rating' : record.seat_comfort_rating,
+        'cabin_staff_rating' : record.cabin_staff_rating,
+        'food_beverages_rating' : record.food_beverages_rating,
+        'inflight_entertainment_rating' : record.inflight_entertainment_rating,
+        'ground_service_rating' : record.ground_service_rating,
+        'wifi_connectivity_rating' : record.wifi_connectivity_rating,
+        'value_money_rating' : record.value_money_rating}
+
+    # make dataframe
+    df = pd.DataFrame(dict, index=[0])
+
+    # get predicted topics - returns list of topics and distributions
+    topic, topic_probability_scores = predict_topic([df['content']])
+    best_topic = np.argmax(topic_probability_scores[0])+1
+
+    # Get text only predciction using mechanism that could be used on twitter - returns prediction and prediction probability
+    text_pred, text_prob = prediction.text_only_predict(df['content'])
+    text_prob = text_prob[0]
+
+    # predict using full survey data - returns prediction and prediction probability
+    full_pred, full_prob = prediction.predict_recommend(df)
+    full_prob = full_prob[0]
+
+    text_data = {"Recommend": ['No', 'Yes'], "Probability": [text_prob[0], text_prob[1]], 'color': list(palettes.viridis(2))}
+    full_data = {"Recommend": ['No', 'Yes'], "Probability": [full_prob[0], full_prob[1]], 'color': list(palettes.viridis(2))}
+
+    # make visualization interactive
+    text_hover = create_hover_tool()
+    full_hover = create_hover_tool()
+
+    # generate prediction probability bar charts
+    text_plot = create_bar_chart(text_data, "Recommend Prob", "Recommend","Probability", text_hover)
+    text_html = file_html(text_plot, CDN, "text_plot")
+    cwd = os.getcwd()
+    template_dir = "C:\\Users\\erroden\\Desktop\\Capstone\\microblog\\app\\templates"
+    os.chdir(template_dir)
+    with open("text_chart.html", "w") as f:
+        f.write(text_html)
+
+    # generate prediction probability bar charts
+    full_plot = create_bar_chart(full_data, "Recommend Prob", "Recommend","Probability", full_hover)
+    full_html = file_html(full_plot, CDN, "full_plot")
+    with open("full_chart.html", "w") as f:
+        f.write(full_html)
+
+    os.chdir(cwd)
+    # render results template with prediction data
+    return render_template('results.html', record=record, topics=topic,
+        text_pred=text_pred, full_pred=full_pred, full_html=full_html,
+        text_html=text_html, best_topic=best_topic)
