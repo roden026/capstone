@@ -225,8 +225,8 @@ def results():
     full_pred, full_prob = prediction.predict_recommend(df)
     full_prob = full_prob[0]
 
-    text_data = {"Recommend": ['No', 'Yes'], "Probability": [text_prob[0], text_prob[1]], 'color': list(palettes.viridis(2))}
-    full_data = {"Recommend": ['No', 'Yes'], "Probability": [full_prob[0], full_prob[1]], 'color': list(palettes.viridis(2))}
+    text_data = {"Recommend": ['No', 'Yes'], "Probability": [text_prob[0], text_prob[1]], 'color': list(palettes.brewer['Pastel1'][3])}
+    full_data = {"Recommend": ['No', 'Yes'], "Probability": [full_prob[0], full_prob[1]], 'color': list(palettes.brewer['Pastel1'][3])}
 
     # make visualization interactive
     text_hover = create_hover_tool()

@@ -1,4 +1,4 @@
-2018-10-01 18:00:31,349 ERROR: Exception on /results [GET] [in c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py:1761]
+2018-10-01 20:29:36,446 ERROR: Exception on /results [GET] [in c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,8 +12,8 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\erroden\Desktop\Capstone\microblog\app\routes.py", line 245, in results
-    text_div=text_div, text_script=text_script, best_topic=best_topic)
+  File "C:\Users\erroden\Desktop\Capstone\microblog\app\routes.py", line 246, in results
+    text_html=text_html, best_topic=best_topic)
   File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\templating.py", line 135, in render_template
     context, ctx.app)
   File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\templating.py", line 117, in _render
@@ -36,44 +36,92 @@ Traceback (most recent call last):
     {% block body -%}
   File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
     {% block content -%}
-  File "C:\Users\erroden\Desktop\Capstone\microblog\app\templates\base.html", line 33, in block "content"
-    {% block app_content %}{% endblock %}
-  File "C:\Users\erroden\Desktop\Capstone\microblog\app\templates\results.html", line 62, in block "app_content"
-    {% elif not current_user.is_following(user) %}
-  File "C:\Users\erroden\Desktop\Capstone\microblog\app\models.py", line 46, in is_following
-    followers.c.followed_id == user.id).count() > 0
-jinja2.exceptions.UndefinedError: 'user' is undefined
-2018-10-01 18:07:12,682 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
-2018-10-01 18:09:46,761 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
-2018-10-01 18:13:12,356 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
-2018-10-01 18:19:47,605 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
-2018-10-01 18:23:10,407 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
-2018-10-01 18:26:18,315 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
-2018-10-01 18:30:51,667 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
-2018-10-01 18:32:13,952 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
-2018-10-01 18:37:00,393 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
-2018-10-01 18:46:58,608 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
-2018-10-01 18:49:46,043 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
-2018-10-01 18:51:01,817 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
-2018-10-01 18:53:52,998 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
-2018-10-01 19:00:02,697 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
-2018-10-01 19:03:48,235 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
-2018-10-01 20:28:02,641 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
-2018-10-01 20:28:25,477 ERROR: Exception on /results [GET] [in c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\erroden\Desktop\Capstone\microblog\app\routes.py", line 246, in results
-    text_html=text_html, text_script=text_script, best_topic=best_topic)
-NameError: name 'text_script' is not defined
-2018-10-01 20:29:21,604 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
+  File "C:\Users\erroden\Desktop\Capstone\microblog\app\templates\results.html", line 15, in block "content"
+    {% include text_html %}
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\templating.py", line 58, in get_source
+    return self._get_source_fast(environment, template)
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\templating.py", line 86, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: 
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    
+      <meta charset="utf-8">
+      <title>text plot</title>
+      
+      
+        
+          
+        <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-0.13.0.min.css" type="text/css" />
+        
+        
+          
+        <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-0.13.0.min.js"></script>
+        <script type="text/javascript">
+            Bokeh.set_log_level("info");
+        </script>
+        
+      
+      
+    
+  </head>
+  
+  
+  <body>
+    
+      
+        
+          
+          
+            <div class="bk-root" id="c867c896-6895-4ece-9d18-02de9302ea4b"></div>
+          
+        
+      
+      
+        <script type="application/json" id="0516b10c-6770-4ea3-b15a-af7378267fb2">
+          {"8536bb62-363c-4ced-b66e-763413f9af9f":{"roots":{"references":[{"attributes":{"axis_label":"Recommend Prediction","formatter":{"id":"710cd6c4-4b59-467e-8666-767ec7c64c2c","type":"CategoricalTickFormatter"},"major_label_orientation":1,"plot":{"id":"ce33482f-31cb-43ac-8907-c1aa7f5bb378","subtype":"Figure","type":"Plot"},"ticker":{"id":"7ded009f-08be-42d1-8c00-1d65b7e356fa","type":"CategoricalTicker"}},"id":"babf1ace-c15f-4f0a-b749-994ec9dc8ad0","type":"CategoricalAxis"},{"attributes":{},"id":"7ded009f-08be-42d1-8c00-1d65b7e356fa","type":"CategoricalTicker"},{"attributes":{"callback":null},"id":"8cd25da8-8cfe-4318-b878-927646ed50da","type":"Range1d"},{"attributes":{"dimension":1,"grid_line_alpha":{"value":0.1},"grid_line_color":{"value":"#999999"},"plot":{"id":"ce33482f-31cb-43ac-8907-c1aa7f5bb378","subtype":"Figure","type":"Plot"},"ticker":{"id":"17c920c1-0879-46c1-805e-e1e16947eae0","type":"BasicTicker"}},"id":"1bf56d74-6342-4ee0-a3ff-9a106024a722","type":"Grid"},{"attributes":{},"id":"d27239f0-c626-4f1d-bebc-8c299200b473","type":"BasicTicker"},{"attributes":{"callback":null,"data":{"Probability":[0.9904002215126207,0.009599778487379302],"Recommend":["No","Yes"],"color":["#440154","#FDE724"]},"selected":{"id":"4ddd33fe-2f07-4f31-b1d7-b8a5d37c868e","type":"Selection"},"selection_policy":{"id":"338acd72-5f0a-426f-bd10-3b34ea6d0e95","type":"UnionRenderers"}},"id":"31045489-d74c-41f1-b764-a5b23a758539","type":"ColumnDataSource"},{"attributes":{"dimension":1,"grid_line_alpha":{"value":0.1},"grid_line_color":{"value":"#999999"},"plot":{"id":"ce33482f-31cb-43ac-8907-c1aa7f5bb378","subtype":"Figure","type":"Plot"},"ticker":{"id":"923b069d-0adf-4ea1-b871-40193fb2aba1","type":"BasicTicker"}},"id":"f119af37-326f-409e-9101-ac80f6e42a57","type":"Grid"},{"attributes":{"callback":null,"renderers":"auto","tooltips":"\n      &lt;div&gt;\n        &lt;span class=\"hover-tooltip\"&gt;$x&lt;/span&gt;\n      &lt;/div&gt;\n      &lt;div&gt;\n        &lt;span class=\"hover-tooltip\"&gt;@Probability Probability&lt;/span&gt;\n      &lt;/div&gt;\n    "},"id":"3e0adac6-f7d3-4cd5-a5db-1bfc9780f53c","type":"HoverTool"},{"attributes":{},"id":"338acd72-5f0a-426f-bd10-3b34ea6d0e95","type":"UnionRenderers"},{"attributes":{},"id":"923b069d-0adf-4ea1-b871-40193fb2aba1","type":"BasicTicker"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","logo":null,"tools":[{"id":"3e0adac6-f7d3-4cd5-a5db-1bfc9780f53c","type":"HoverTool"}]},"id":"bd3cb454-47db-45f8-9c57-ffe9a4391e02","type":"Toolbar"},{"attributes":{"callback":null,"factors":["No","Yes"]},"id":"785cc536-61e8-4d47-b115-a43830a23bef","type":"FactorRange"},{"attributes":{"below":[{"id":"babf1ace-c15f-4f0a-b749-994ec9dc8ad0","type":"CategoricalAxis"}],"left":[{"id":"edad20fa-a05e-4560-9318-7e2a7cf69116","type":"LinearAxis"}],"min_border":0,"min_border_top":0,"outline_line_color":{"value":"#666666"},"plot_height":1000,"plot_width":500,"renderers":[{"id":"babf1ace-c15f-4f0a-b749-994ec9dc8ad0","type":"CategoricalAxis"},{"id":"c414a28c-823a-406c-9a20-29a0b1ebedff","type":"Grid"},{"id":"edad20fa-a05e-4560-9318-7e2a7cf69116","type":"LinearAxis"},{"id":"f119af37-326f-409e-9101-ac80f6e42a57","type":"Grid"},{"id":"fd6ec44d-97b3-4e3f-962c-ffcd29739f5a","type":"GlyphRenderer"},{"id":"b791e8fa-e1ec-4e65-bcab-c72f7826d351","type":"Grid"},{"id":"1bf56d74-6342-4ee0-a3ff-9a106024a722","type":"Grid"}],"sizing_mode":"scale_both","title":{"id":"1c62d543-3b03-45a8-9bbd-cd971e204d02","type":"Title"},"toolbar":{"id":"bd3cb454-47db-45f8-9c57-ffe9a4391e02","type":"Toolbar"},"toolbar_location":"above","v_symmetry":true,"x_range":{"id":"785cc536-61e8-4d47-b115-a43830a23bef","type":"FactorRange"},"x_scale":{"id":"953f3d24-bac6-47be-b1dd-65decf856122","type":"CategoricalScale"},"y_range":{"id":"8cd25da8-8cfe-4318-b878-927646ed50da","type":"Range1d"},"y_scale":{"id":"b0803cca-080b-4f7d-992a-f7275b1c4269","type":"LinearScale"}},"id":"ce33482f-31cb-43ac-8907-c1aa7f5bb378","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"b0803cca-080b-4f7d-992a-f7275b1c4269","type":"LinearScale"},{"attributes":{},"id":"4ddd33fe-2f07-4f31-b1d7-b8a5d37c868e","type":"Selection"},{"attributes":{},"id":"710cd6c4-4b59-467e-8666-767ec7c64c2c","type":"CategoricalTickFormatter"},{"attributes":{},"id":"3df24ff9-71cf-4bb9-b4b9-ed24a2631715","type":"BasicTickFormatter"},{"attributes":{"grid_line_color":{"value":null},"plot":{"id":"ce33482f-31cb-43ac-8907-c1aa7f5bb378","subtype":"Figure","type":"Plot"},"ticker":{"id":"d27239f0-c626-4f1d-bebc-8c299200b473","type":"BasicTicker"}},"id":"b791e8fa-e1ec-4e65-bcab-c72f7826d351","type":"Grid"},{"attributes":{"grid_line_color":{"value":null},"plot":{"id":"ce33482f-31cb-43ac-8907-c1aa7f5bb378","subtype":"Figure","type":"Plot"},"ticker":{"id":"7ded009f-08be-42d1-8c00-1d65b7e356fa","type":"CategoricalTicker"}},"id":"c414a28c-823a-406c-9a20-29a0b1ebedff","type":"Grid"},{"attributes":{"data_source":{"id":"31045489-d74c-41f1-b764-a5b23a758539","type":"ColumnDataSource"},"glyph":{"id":"34ed0f31-47ec-4437-815f-eb1966c7abfe","type":"VBar"},"hover_glyph":null,"muted_glyph":null,"view":{"id":"773ded55-a528-452b-ba8f-79ca262dd29f","type":"CDSView"}},"id":"fd6ec44d-97b3-4e3f-962c-ffcd29739f5a","type":"GlyphRenderer"},{"attributes":{"fill_color":{"field":"color"},"top":{"field":"Probability"},"width":{"value":0.8},"x":{"field":"Recommend"}},"id":"34ed0f31-47ec-4437-815f-eb1966c7abfe","type":"VBar"},{"attributes":{"source":{"id":"31045489-d74c-41f1-b764-a5b23a758539","type":"ColumnDataSource"}},"id":"773ded55-a528-452b-ba8f-79ca262dd29f","type":"CDSView"},{"attributes":{},"id":"953f3d24-bac6-47be-b1dd-65decf856122","type":"CategoricalScale"},{"attributes":{"axis_label":"Prediction Probability","formatter":{"id":"3df24ff9-71cf-4bb9-b4b9-ed24a2631715","type":"BasicTickFormatter"},"plot":{"id":"ce33482f-31cb-43ac-8907-c1aa7f5bb378","subtype":"Figure","type":"Plot"},"ticker":{"id":"923b069d-0adf-4ea1-b871-40193fb2aba1","type":"BasicTicker"}},"id":"edad20fa-a05e-4560-9318-7e2a7cf69116","type":"LinearAxis"},{"attributes":{"plot":null,"text":"Recommend Prob"},"id":"1c62d543-3b03-45a8-9bbd-cd971e204d02","type":"Title"},{"attributes":{},"id":"17c920c1-0879-46c1-805e-e1e16947eae0","type":"BasicTicker"}],"root_ids":["ce33482f-31cb-43ac-8907-c1aa7f5bb378"]},"title":"Bokeh Application","version":"0.13.0"}}
+        </script>
+        <script type="text/javascript">
+          (function() {
+            var fn = function() {
+              Bokeh.safely(function() {
+                (function(root) {
+                  function embed_document(root) {
+                    
+                  var docs_json = document.getElementById('0516b10c-6770-4ea3-b15a-af7378267fb2').textContent;
+                  var render_items = [{"docid":"8536bb62-363c-4ced-b66e-763413f9af9f","roots":{"ce33482f-31cb-43ac-8907-c1aa7f5bb378":"c867c896-6895-4ece-9d18-02de9302ea4b"}}];
+                  root.Bokeh.embed.embed_items(docs_json, render_items);
+                
+                  }
+                  if (root.Bokeh !== undefined) {
+                    embed_document(root);
+                  } else {
+                    var attempts = 0;
+                    var timer = setInterval(function(root) {
+                      if (root.Bokeh !== undefined) {
+                        embed_document(root);
+                        clearInterval(timer);
+                      }
+                      attempts++;
+                      if (attempts > 100) {
+                        console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing")
+                        clearInterval(timer);
+                      }
+                    }, 10, root)
+                  }
+                })(window);
+              });
+            };
+            if (document.readyState != "loading") fn();
+            else document.addEventListener("DOMContentLoaded", fn);
+          })();
+        </script>
+    
+  </body>
+  
+</html>

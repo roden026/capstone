@@ -1,56 +1,4 @@
-2018-10-01 17:58:27,030 ERROR: Exception on /results [GET] [in c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\erroden\Desktop\Capstone\microblog\app\routes.py", line 245, in results
-    text_div=text_div, text_script=text_script, best_topic=best_topic)
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\templating.py", line 134, in render_template
-    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\jinja2\environment.py", line 869, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\jinja2\environment.py", line 830, in get_template
-    return self._load_template(name, self.make_globals(globals))
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\jinja2\environment.py", line 804, in _load_template
-    template = self.loader.load(self, name, globals)
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\jinja2\loaders.py", line 125, in load
-    code = environment.compile(source, name, filename)
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\jinja2\environment.py", line 591, in compile
-    self.handle_exception(exc_info, source_hint=source_hint)
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\jinja2\_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\erroden\Desktop\Capstone\microblog\app\templates\results.html", line 72, in template
-    {% extends "lda.html" %}
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\jinja2\environment.py", line 543, in _generate
-    optimized=self.optimized)
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\jinja2\compiler.py", line 82, in generate
-    generator.visit(node)
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\jinja2\visitor.py", line 38, in visit
-    return f(node, *args, **kwargs)
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\jinja2\compiler.py", line 799, in visit_Template
-    self.blockvisit(block.body, block_frame)
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\jinja2\compiler.py", line 378, in blockvisit
-    self.visit(node, frame)
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\jinja2\visitor.py", line 38, in visit
-    return f(node, *args, **kwargs)
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\jinja2\compiler.py", line 847, in visit_Extends
-    node.lineno)
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\jinja2\compiler.py", line 315, in fail
-    raise TemplateAssertionError(msg, lineno, self.name, self.filename)
-jinja2.exceptions.TemplateAssertionError: cannot use extend from a non top-level scope
-2018-10-01 17:59:49,277 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
-2018-10-01 18:00:05,538 ERROR: Exception on /results [GET] [in c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py:1761]
+2018-10-01 18:00:31,349 ERROR: Exception on /results [GET] [in c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -95,3 +43,37 @@ Traceback (most recent call last):
   File "C:\Users\erroden\Desktop\Capstone\microblog\app\models.py", line 46, in is_following
     followers.c.followed_id == user.id).count() > 0
 jinja2.exceptions.UndefinedError: 'user' is undefined
+2018-10-01 18:07:12,682 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
+2018-10-01 18:09:46,761 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
+2018-10-01 18:13:12,356 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
+2018-10-01 18:19:47,605 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
+2018-10-01 18:23:10,407 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
+2018-10-01 18:26:18,315 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
+2018-10-01 18:30:51,667 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
+2018-10-01 18:32:13,952 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
+2018-10-01 18:37:00,393 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
+2018-10-01 18:46:58,608 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
+2018-10-01 18:49:46,043 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
+2018-10-01 18:51:01,817 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
+2018-10-01 18:53:52,998 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
+2018-10-01 19:00:02,697 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
+2018-10-01 19:03:48,235 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
+2018-10-01 20:28:02,641 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
+2018-10-01 20:28:25,477 ERROR: Exception on /results [GET] [in c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\erroden\Desktop\Capstone\microblog\app\routes.py", line 246, in results
+    text_html=text_html, text_script=text_script, best_topic=best_topic)
+NameError: name 'text_script' is not defined
+2018-10-01 20:29:21,604 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
