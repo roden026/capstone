@@ -1,21 +1,21 @@
 {% extends 'bootstrap/base.html' %}
 
 {% block title %}
-    {% if title %}{{ title }} - Microblog{% else %} Eric's Capstone {% endif %}
+    {% if title %}{{ title }} - Capstone{% else %} Eric's Capstone {% endif %}
 {% endblock %}
 
 {% block navbar %}
     <nav class="navbar navbar-default">
-      Microblog:
+      Capstone:
       <a href="{{ url_for('index') }}">Home</a>
-      {% if current_user.is_anonymous %}
+      <!-- {% if current_user.is_anonymous %}
       <a href="{{ url_for('login') }}">Login</a>
       {% else %}
       <a href="{{ url_for('user', username=current_user.username) }}">Profile</a>
       <a href="{{ url_for('logout') }}">Logout</a>
-      <a href="{{ url_for('explore') }}">Explore</a>
+      <a href="{{ url_for('explore') }}">Explore</a> -->
       <a href="{{ url_for('survey') }}">Survey</a>
-      {% endif %}
+      <!-- {% endif %} -->
     </nav>
 {% endblock %}
 

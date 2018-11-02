@@ -1,4 +1,5 @@
-2018-10-01 17:58:27,030 ERROR: Exception on /results [GET] [in c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py:1761]
+2018-10-01 20:46:08,064 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
+2018-10-01 20:47:57,712 ERROR: Exception on /results [GET] [in c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,45 +13,11 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\erroden\Desktop\Capstone\microblog\app\routes.py", line 245, in results
-    text_div=text_div, text_script=text_script, best_topic=best_topic)
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\templating.py", line 134, in render_template
-    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\jinja2\environment.py", line 869, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\jinja2\environment.py", line 830, in get_template
-    return self._load_template(name, self.make_globals(globals))
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\jinja2\environment.py", line 804, in _load_template
-    template = self.loader.load(self, name, globals)
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\jinja2\loaders.py", line 125, in load
-    code = environment.compile(source, name, filename)
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\jinja2\environment.py", line 591, in compile
-    self.handle_exception(exc_info, source_hint=source_hint)
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\jinja2\_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\erroden\Desktop\Capstone\microblog\app\templates\results.html", line 72, in template
-    {% extends "lda.html" %}
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\jinja2\environment.py", line 543, in _generate
-    optimized=self.optimized)
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\jinja2\compiler.py", line 82, in generate
-    generator.visit(node)
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\jinja2\visitor.py", line 38, in visit
-    return f(node, *args, **kwargs)
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\jinja2\compiler.py", line 799, in visit_Template
-    self.blockvisit(block.body, block_frame)
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\jinja2\compiler.py", line 378, in blockvisit
-    self.visit(node, frame)
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\jinja2\visitor.py", line 38, in visit
-    return f(node, *args, **kwargs)
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\jinja2\compiler.py", line 847, in visit_Extends
-    node.lineno)
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\jinja2\compiler.py", line 315, in fail
-    raise TemplateAssertionError(msg, lineno, self.name, self.filename)
-jinja2.exceptions.TemplateAssertionError: cannot use extend from a non top-level scope
-2018-10-01 17:59:49,277 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
-2018-10-01 18:00:05,538 ERROR: Exception on /results [GET] [in c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py:1761]
+  File "C:\Users\erroden\Desktop\Capstone\microblog\app\routes.py", line 237, in results
+    with open("\\app\\templates\\text_chart.html", "w") as f:
+FileNotFoundError: [Errno 2] No such file or directory: '\\app\\templates\\text_chart.html'
+2018-10-01 20:51:40,190 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
+2018-10-01 20:52:12,818 ERROR: Exception on /results [GET] [in c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -64,34 +31,32 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\erroden\Desktop\Capstone\microblog\app\routes.py", line 245, in results
-    text_div=text_div, text_script=text_script, best_topic=best_topic)
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\templating.py", line 135, in render_template
-    context, ctx.app)
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\templating.py", line 117, in _render
-    rv = template.render(context)
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\jinja2\environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+  File "C:\Users\erroden\Desktop\Capstone\microblog\app\routes.py", line 247, in results
+    with open("\\app\\templates\\full_chart.html", "w") as f:
+FileNotFoundError: [Errno 2] No such file or directory: '\\app\\templates\\full_chart.html'
+2018-10-01 20:53:00,215 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
+2018-10-01 20:57:56,058 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
+2018-10-01 20:58:14,666 ERROR: Exception on /results [GET] [in c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\jinja2\_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\erroden\Desktop\Capstone\microblog\app\templates\results.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "C:\Users\erroden\Desktop\Capstone\microblog\app\templates\base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
-    {%- block html %}
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
-    {% block body -%}
-  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
-    {% block content -%}
-  File "C:\Users\erroden\Desktop\Capstone\microblog\app\templates\base.html", line 33, in block "content"
-    {% block app_content %}{% endblock %}
-  File "C:\Users\erroden\Desktop\Capstone\microblog\app\templates\results.html", line 62, in block "app_content"
-    {% elif not current_user.is_following(user) %}
-  File "C:\Users\erroden\Desktop\Capstone\microblog\app\models.py", line 46, in is_following
-    followers.c.followed_id == user.id).count() > 0
-jinja2.exceptions.UndefinedError: 'user' is undefined
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\erroden\Desktop\Capstone\microblog\app\routes.py", line 236, in results
+    text_plot = create_bar_chart(text_data, "Recommend Prob", "Recommend","Probability", text_hover)
+  File "C:\Users\erroden\Desktop\Capstone\microblog\plotting.py", line 37, in create_bar_chart
+    plot = figure(title=title, x_range=xdr, y_range=ydr, plot_width=width,
+NameError: name 'width' is not defined
+2018-10-01 20:59:19,724 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
+2018-10-01 21:01:05,297 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
+2018-10-01 21:03:41,100 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
+2018-10-01 21:04:34,166 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]
+2018-10-01 21:08:25,704 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:48]

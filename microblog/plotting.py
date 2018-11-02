@@ -7,6 +7,7 @@ from bokeh.plotting import figure
 from bokeh.embed import components
 from bokeh.models.sources import ColumnDataSource
 from bokeh import palettes
+from bokeh.colors import Color
 
 
 def create_hover_tool():
@@ -38,7 +39,7 @@ def create_bar_chart(data, title, x_name, y_name, hover_tool=None):
                   min_border=0, toolbar_location="above", tools=tools,
                   outline_line_color="#666666")
 
-    glyph = VBar(x=x_name, top=y_name, bottom=0, width=.8, fill_color='color')
+    glyph = VBar(x=x_name, top=y_name, bottom=0, width=.8)
     plot.add_glyph(source, glyph)
 
     xaxis = LinearAxis()

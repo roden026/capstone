@@ -1,7 +1,7 @@
 import os
 import numpy as np
 import pandas as pd
-import re, nltk, spacy, gensim
+import re, nltk
 from nltk.tokenize import RegexpTokenizer
 from nltk.corpus import stopwords
 
@@ -9,13 +9,11 @@ from nltk.corpus import stopwords
 from sklearn.decomposition import LatentDirichletAllocation, TruncatedSVD
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from sklearn.model_selection import GridSearchCV
-from pprint import pprint
 from sklearn.externals import joblib
 
 # Plotting tools
 import pyLDAvis
 import pyLDAvis.sklearn
-import matplotlib.pyplot as plt
 
 # Show top n keywords for each topic
 def show_topics(vectorizer, lda_model, n_words=20):

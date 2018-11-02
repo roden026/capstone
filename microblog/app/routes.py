@@ -29,8 +29,11 @@ from bokeh.models.sources import ColumnDataSource
 from bokeh import palettes
 from plotting import create_bar_chart, create_hover_tool
 import numpy as np
+from bokeh.embed import json_item
 
-@app.route('/', methods=['GET', 'POST'])
+# used for workaround to allow for multiple plots in one session
+image_counter = 0
+
 @app.route('/index', methods=['GET', 'POST'])
 @login_required
 def index():
@@ -167,7 +170,7 @@ def unfollow(username):
     flash('You are not following {}.'.format(username))
     return redirect(url_for('user', username=username))
 
-
+@app.route('/', methods=['GET', 'POST'])
 @app.route('/survey', methods=['GET', 'POST'])
 def survey():
     form = SurveyForm()
@@ -210,6 +213,9 @@ def results():
         'wifi_connectivity_rating' : record.wifi_connectivity_rating,
         'value_money_rating' : record.value_money_rating}
 
+    # used for workaround to be able to submit multiple surveys
+    global image_counter
+
     # make dataframe
     df = pd.DataFrame(dict, index=[0])
 
@@ -225,8 +231,8 @@ def results():
     full_pred, full_prob = prediction.predict_recommend(df)
     full_prob = full_prob[0]
 
-    text_data = {"Recommend": ['No', 'Yes'], "Probability": [text_prob[0], text_prob[1]], 'color': list(palettes.brewer['Pastel1'][3])}
-    full_data = {"Recommend": ['No', 'Yes'], "Probability": [full_prob[0], full_prob[1]], 'color': list(palettes.brewer['Pastel1'][3])}
+    text_data = {"Recommend": ['No', 'Yes'], "Probability": [text_prob[0], text_prob[1]]}
+    full_data = {"Recommend": ['No', 'Yes'], "Probability": [full_prob[0], full_prob[1]]}
 
     # make visualization interactive
     text_hover = create_hover_tool()
@@ -238,17 +244,21 @@ def results():
     cwd = os.getcwd()
     template_dir = "C:\\Users\\erroden\\Desktop\\Capstone\\microblog\\app\\templates"
     os.chdir(template_dir)
-    with open("text_chart.html", "w") as f:
+    with open("text_chart{}.html".format(image_counter), "w") as f:
         f.write(text_html)
 
     # generate prediction probability bar charts
     full_plot = create_bar_chart(full_data, "Recommend Prob", "Recommend","Probability", full_hover)
     full_html = file_html(full_plot, CDN, "full_plot")
-    with open("full_chart.html", "w") as f:
+    print(full_html)
+    with open("full_chart{}.html".format(image_counter), "w") as f:
         f.write(full_html)
 
     os.chdir(cwd)
+    this_image = image_counter
+    image_counter += 1
+
     # render results template with prediction data
-    return render_template('results.html', record=record, topics=topic,
+    return render_template('results.html', num=this_image, record=record, topics=topic,
         text_pred=text_pred, full_pred=full_pred, full_html=full_html,
         text_html=text_html, best_topic=best_topic)

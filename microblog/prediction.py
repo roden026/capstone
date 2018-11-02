@@ -1,16 +1,12 @@
 # Imports
 import pandas as pd
-import seaborn as sns
 import numpy as np
 import os
-import matplotlib.pyplot as plt
 import nltk
 from nltk.corpus import stopwords
 import re
 
 from sklearn.externals import joblib
-from sklearn.cross_validation import cross_val_score
-from sklearn.cross_validation import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn import metrics
 from sklearn.naive_bayes import MultinomialNB

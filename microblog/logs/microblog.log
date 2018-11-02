@@ -1,0 +1,64 @@
+2018-11-01 18:24:50,418 ERROR: Exception on /results [GET] [in c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\erroden\Desktop\Capstone\microblog\app\routes.py", line 242, in results
+    text_plot = create_bar_chart(text_data, "Recommend Prob", "Recommend","Probability", text_hover)
+  File "C:\Users\erroden\Desktop\Capstone\microblog\plotting.py", line 41, in create_bar_chart
+    glyph = VBar(x=x_name, top=y_name, bottom=0, width=.8, color=['red','blue'])
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\bokeh\model.py", line 261, in __init__
+    super(Model, self).__init__(**kwargs)
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\bokeh\core\has_props.py", line 254, in __init__
+    setattr(self, name, value)
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\bokeh\core\has_props.py", line 289, in __setattr__
+    (name, self.__class__.__name__, text, nice_join(matches)))
+AttributeError: unexpected attribute 'color' to VBar, similar attributes are line_color or fill_color
+2018-11-01 18:25:19,525 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:49]
+2018-11-01 18:25:43,919 ERROR: Exception on /results [GET] [in c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\erroden\Desktop\Capstone\microblog\app\routes.py", line 242, in results
+    text_plot = create_bar_chart(text_data, "Recommend Prob", "Recommend","Probability", text_hover)
+  File "C:\Users\erroden\Desktop\Capstone\microblog\plotting.py", line 41, in create_bar_chart
+    glyph = VBar(x=x_name, top=y_name, bottom=0, width=.8, fill_color=['red','blue'])
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\bokeh\model.py", line 261, in __init__
+    super(Model, self).__init__(**kwargs)
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\bokeh\core\has_props.py", line 254, in __init__
+    setattr(self, name, value)
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\bokeh\core\has_props.py", line 281, in __setattr__
+    super(HasProps, self).__setattr__(name, value)
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\bokeh\core\property\descriptors.py", line 546, in __set__
+    self._internal_set(obj, value, setter=setter)
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\bokeh\core\property\descriptors.py", line 767, in _internal_set
+    value = self.property.prepare_value(obj, self.name, value)
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\bokeh\core\property\dataspec.py", line 586, in prepare_value
+    return super(ColorSpec, self).prepare_value(cls, name, value)
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\bokeh\core\property\bases.py", line 328, in prepare_value
+    raise e
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\bokeh\core\property\bases.py", line 321, in prepare_value
+    self.validate(value)
+  File "c:\users\erroden\appdata\local\continuum\anaconda3\envs\mlg_2\lib\site-packages\bokeh\core\property\either.py", line 117, in validate
+    raise ValueError(msg)
+ValueError: expected an element of either String, Dict(Enum('expr', 'field', 'value', 'transform'), Either(String, Instance(Transform), Instance(Expression), Color)) or Color, got ['red', 'blue']
+2018-11-01 18:28:47,679 INFO: Microblog startup [in C:\Users\erroden\Desktop\Capstone\microblog\app\__init__.py:49]

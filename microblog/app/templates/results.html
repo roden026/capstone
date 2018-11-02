@@ -12,7 +12,7 @@
     <hr>
         <h1>Text Prediction</h1>
         <hr>
-          {% include 'text_chart.html' %}
+          {% include "text_chart{}.html".format(num) %}
         <hr>
     <hr>
     <h1>Recommendation Predictions and Metrics</h1>
@@ -22,9 +22,8 @@
       <h3>Full Survey Prediction: Recommended</h3>
       {% endif %}
       <hr>
-        {% include 'full_chart.html' %}
+        {% include 'full_chart{}.html'.format(num) %}
       <hr>
-
     <hr>
       <h1>Topic Exploration</h1>
       <h2>Predicted Topic Group is Topic {{ best_topic }}</h2>
