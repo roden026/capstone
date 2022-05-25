@@ -101,7 +101,7 @@ pycparser==2.18
 pydot==1.2.4
 pydotplus==2.0.2
 Pygments==2.2.0
-PyJWT==1.6.4
+PyJWT==2.4.0
 pyLDAvis==2.1.2
 pyOpenSSL==17.5.0
 pyparsing==2.2.0
